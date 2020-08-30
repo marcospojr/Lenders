@@ -326,6 +326,7 @@
                                 <connections>
                                     <action selector="btEntrar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="koL-C0-BH1"/>
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dbY-VK-XJi"/>
+                                    <action selector="registerButtonTapped:" destination="aC6-oV-F2G" eventType="touchUpInside" id="XWr-9v-uKs"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-7J-PR2">
@@ -358,6 +359,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ZHq-0j-HVH"/>
                     </view>
+                    <connections>
+                        <outlet property="repeatPasswordTextField" destination="hAT-fT-31S" id="VTi-J7-H8Y"/>
+                        <outlet property="userCpfTextField" destination="Kep-5S-xtX" id="Ikr-VI-bVJ"/>
+                        <outlet property="userEmailTextField" destination="NHm-1Z-9LB" id="teI-eP-Mnh"/>
+                        <outlet property="userNameTextField" destination="Cfb-da-H94" id="rJg-sg-T6W"/>
+                        <outlet property="userPasswordTextField" destination="Ya3-P8-Q4P" id="i7V-Oc-V5c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ItB-t8-5XV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
