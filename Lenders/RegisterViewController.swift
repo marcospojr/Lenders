@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  Lenders
 //
 //  Created by Marcos Junior on 29/08/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.performSegue( withIdentifier: "loginView", sender: self)
-    }
-    
-    
+
     /*
     // MARK: - Navigation
 
