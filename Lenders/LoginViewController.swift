@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     }
     
     
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
         let userEmail = userEmailTextField
         let userPassword = userPasswordTextField
@@ -28,11 +29,16 @@ class LoginViewController: UIViewController {
         let userEmailStored = UserDefaults.standard.string(forKey: "userEmail")
         let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword")
         
-        if(userEmail?.isEqual(userEmailStored) == true) {
-            if(userPassword?.isEqual(userPasswordStored) == true) {
-//                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-//                UserDefaults.standard.synchronize()
-//                
+        print("Email:" + (userEmail?.text)! + "\n")
+        print("EmailStored:" + userEmailStored! + "\n")
+        print("Senha:" + (userPassword?.text)! + "\n")
+        print("SenhaStored:" + userPasswordStored! + "\n")
+
+        if(userEmail?.text == userEmailStored) {
+            if(userPassword?.text == userPasswordStored) {
+                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                UserDefaults.standard.synchronize()
+                
                 self.dismiss(animated: true, completion: nil)
             }
         }

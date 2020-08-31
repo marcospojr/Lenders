@@ -17,18 +17,18 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        
+        if(!isUserLoggedIn){
+            self.performSegue( withIdentifier: "loginView", sender: self)
+        }
+        
+    }
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
         self.performSegue( withIdentifier: "loginView", sender: self)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
