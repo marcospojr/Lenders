@@ -55,25 +55,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        // Armazena os dados
-        UserDefaults.standard.object(forKey: userName!)
-        UserDefaults.standard.object(forKey: userLastName!)
-        UserDefaults.standard.object(forKey: userCpf!)
-        UserDefaults.standard.object(forKey: userEmail!)
-        UserDefaults.standard.object(forKey: userPassword!)
-        
-        UserDefaults.standard.synchronize()
-        
-        // Mensagem de confirmacao
-//        let confirmAlert = UIAlertController(title: "Alert", message: "Registrado com sucesso!", preferredStyle: UIAlertController.Style.alert)
-//
-//        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default){
-//            action in self.dismiss(animated: true, completion: nil)
-//        }
-        
-//        confirmAlert.addAction(okAction)
-//        self.present(confirmAlert, animated: true, completion: nil)
-//
+        // Indicador de atividade
         let myActivityIndicator = UIActivityIndicatorView()
         myActivityIndicator.center = view.center
         myActivityIndicator.hidesWhenStopped = false
@@ -88,6 +70,7 @@ class RegisterViewController: UIViewController {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+
         
         let postString = ["userName": userNameTextField.text!,
                           "userLastName": userLastNameTextField.text!,
@@ -107,38 +90,41 @@ class RegisterViewController: UIViewController {
         let task = URLSession.shared.dataTask(with: request) {
             (data: Data?, response: URLResponse?, error: Error?) in
             
-            self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-            
-            if error != nil {
-                self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                
-                if let parseJSON = json {
-                    
-                    let userId = parseJSON["userId"] as? String
-                    print("User id: \(String (describing: userId!))")
-                    
-                    if (userId?.isEmpty)! {
-                        self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
-                        return
-                    } else {
-                        self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
-                    }
-                } else {
-                    self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
-                    return
-                }
-            } catch {
+            DispatchQueue.main.async {
                 self.removeActivityIndicator(activityIndicator: myActivityIndicator)
                 
-                self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
-                print(error)
+                if error != nil {
+                    self.displayAlertMessage(userMessage: "Não foi possível executar esta solicitação. Tente novamente mais tarde.")
+                    print("error=\(String(describing: error))")
+                    return
+                }
+                
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: /*.allowFragments*/ .mutableContainers) as? NSDictionary
+                    
+                    if let parseJSON = json {
+                        
+                        let userId = parseJSON["userId"] as? String
+                        
+                        if (userId?.isEmpty)! {
+                            self.displayAlertMessage(userMessage: "Não foi possível executar esta solicitação. Tente novamente mais tarde.")
+                            return
+                        } else {
+                            self.displayAlertMessage(userMessage: "Registrado com sucesso. Por favor, continue para fazer o login.")
+                            return
+                        }
+                    } else {
+                        self.displayAlertMessage(userMessage: "Não foi possível executar esta solicitação. Tente novamente mais tarde.")
+                        return
+                    }
+                } catch {
+                    self.removeActivityIndicator(activityIndicator: myActivityIndicator)
+                    
+                    self.displayAlertMessage(userMessage: "Não foi possível executar esta solicitação. Tente novamente mais tarde.")
+                    print(error)
+                }
             }
+            
         }
         task.resume()
         
@@ -154,9 +140,9 @@ class RegisterViewController: UIViewController {
     
     
     func displayAlertMessage(userMessage:String) {
-        let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertController.Style.alert)
+        let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         
         myAlert.addAction(okAction)
         
