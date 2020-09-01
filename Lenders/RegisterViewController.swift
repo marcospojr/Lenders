@@ -34,12 +34,12 @@ class RegisterViewController: UIViewController {
         let repeatPassword = repeatPasswordTextField.text
         
         // Verifica se os campos estao vazios
-        if(((userName?.isEmpty) == true)        || userName == nil      ||
-            ((userLastName?.isEmpty) == true)   || userLastName == nil  ||
-            ((userCpf?.isEmpty) == true)        || userCpf == nil       ||
-            ((userEmail?.isEmpty) == true)      || userEmail == nil     ||
-            ((userPassword?.isEmpty) == true)   || userPassword == nil  ||
-            ((repeatPassword?.isEmpty) == true) || repeatPassword == nil) {
+        if((userName?.isEmpty)!         || userName == nil      ||
+            (userLastName?.isEmpty)!    || userLastName == nil  ||
+            (userCpf?.isEmpty)!         || userCpf == nil       ||
+            (userEmail?.isEmpty)!       || userEmail == nil     ||
+            (userPassword?.isEmpty)!    || userPassword == nil  ||
+            (repeatPassword?.isEmpty)!  || repeatPassword == nil) {
             
 
             displayAlertMessage(userMessage: "Preencha todos os campos!")
@@ -65,16 +65,93 @@ class RegisterViewController: UIViewController {
         UserDefaults.standard.synchronize()
         
         // Mensagem de confirmacao
-        let confirmAlert = UIAlertController(title: "Alert", message: "Registrado com sucesso!", preferredStyle: UIAlertController.Style.alert)
+//        let confirmAlert = UIAlertController(title: "Alert", message: "Registrado com sucesso!", preferredStyle: UIAlertController.Style.alert)
+//
+//        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default){
+//            action in self.dismiss(animated: true, completion: nil)
+//        }
         
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default){
-            action in self.dismiss(animated: true, completion: nil)
+//        confirmAlert.addAction(okAction)
+//        self.present(confirmAlert, animated: true, completion: nil)
+//
+        let myActivityIndicator = UIActivityIndicatorView()
+        myActivityIndicator.center = view.center
+        myActivityIndicator.hidesWhenStopped = false
+        myActivityIndicator.startAnimating()
+         
+        view.addSubview(myActivityIndicator)
+        
+        // Registrando o usuário
+        let myUrl = URL(string: "https://private-c7bb6-lendersapi1.apiary-mock.com/api/users")
+        var request = URLRequest(url: myUrl!)
+        
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let postString = ["userName": userNameTextField.text!,
+                          "userLastName": userLastNameTextField.text!,
+                          "userCpf": userCpfTextField.text!,
+                          "userEmail": userEmailTextField.text!,
+                          "userPassword": userPasswordTextField.text!
+        ] as [String : String]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            displayAlertMessage(userMessage: "Algo deu errado. Tente novamente!")
+            return
         }
         
-        confirmAlert.addAction(okAction)
-        self.present(confirmAlert, animated: true, completion: nil)
+        let task = URLSession.shared.dataTask(with: request) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+            
+            self.removeActivityIndicator(activityIndicator: myActivityIndicator)
+            
+            if error != nil {
+                self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                
+                if let parseJSON = json {
+                    
+                    let userId = parseJSON["userId"] as? String
+                    print("User id: \(String (describing: userId!))")
+                    
+                    if (userId?.isEmpty)! {
+                        self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
+                        return
+                    } else {
+                        self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
+                    }
+                } else {
+                    self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
+                    return
+                }
+            } catch {
+                self.removeActivityIndicator(activityIndicator: myActivityIndicator)
+                
+                self.displayAlertMessage(userMessage: "Não foi possível executar esta request. Tente novamente mais tarde.")
+                print(error)
+            }
+        }
+        task.resume()
+        
         
     }
+    
+    func removeActivityIndicator(activityIndicator: UIActivityIndicatorView) {
+        DispatchQueue.main.async {
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+        }
+    }
+    
     
     func displayAlertMessage(userMessage:String) {
         let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertController.Style.alert)

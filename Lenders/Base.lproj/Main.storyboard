@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFj-kJ-HIK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,9 +10,9 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Lenders" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Lenders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
                             <userLayoutGuide location="16" affinity="minX"/>
@@ -20,7 +20,7 @@
                         </userGuides>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CC0-yL-Zxd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lenders_white" translatesAutoresizingMaskIntoConstraints="NO" id="t0z-Gu-8YJ">
                                         <rect key="frame" x="16" y="8" width="343" height="128"/>
@@ -38,7 +38,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="JtR-Zd-Ccp">
-                                                <rect key="frame" x="0.0" y="68.666666666666657" width="343" height="124"/>
+                                                <rect key="frame" x="0.0" y="68.666666666666686" width="343" height="124"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yY-yP-NWx" customClass="DesignableView" customModule="Lenders" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -75,7 +75,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpB-7f-psI" customClass="DesignableView" customModule="Lenders" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="74.000000000000028" width="343" height="50"/>
+                                                        <rect key="frame" x="0.0" y="74" width="343" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gJi-5o-pCE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -129,11 +129,11 @@
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-9I-NFD">
-                                        <rect key="frame" x="16" y="429.66666666666669" width="343" height="248.33333333333331"/>
+                                        <rect key="frame" x="16" y="429.66666666666674" width="343" height="258.33333333333326"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RRW-1w-NZo">
-                                        <rect key="frame" x="16" y="686" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="696" width="343" height="30"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yth-fd-hLi">
                                                 <rect key="frame" x="55" y="0.0" width="233" height="30"/>
@@ -148,7 +148,7 @@
                                                         <rect key="frame" x="162" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Crie agora"/>
                                                         <connections>
-                                                            <segue destination="aC6-oV-F2G" kind="presentation" identifier="registerView" id="bxQ-KQ-EDs"/>
+                                                            <action selector="crieButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wLt-xg-J4H"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -180,7 +180,7 @@
         <!--View Controller-->
         <scene sceneID="Bnt-BT-377">
             <objects>
-                <viewController id="qFj-kJ-HIK" customClass="ViewController" customModule="Lenders" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="qFj-kJ-HIK" customClass="ViewController" customModule="Lenders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="geK-tH-Fdp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,38 +210,17 @@
                         <viewLayoutGuide key="safeArea" id="VFn-La-6pM"/>
                     </view>
                     <navigationItem key="navigationItem" id="sBG-g6-Vt7"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginView" id="TTN-Dc-ovG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xt-lj-PXB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755.072463768116" y="119.86607142857142"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EbL-f8-Od4">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PZO-2N-S2J" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nMc-9m-O4I">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qFj-kJ-HIK" kind="relationship" relationship="rootViewController" id="Q4r-RB-B3n"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="grW-Ra-Tuy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="844.92753623188412" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1692" y="120"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="o29-Gm-Wg2">
             <objects>
-                <viewController id="aC6-oV-F2G" customClass="RegisterViewController" customModule="Lenders" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="aC6-oV-F2G" customClass="RegisterViewController" customModule="Lenders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uuU-51-Vwn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
                             <userLayoutGuide location="398" affinity="minX"/>
@@ -249,7 +228,7 @@
                         </userGuides>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bLx-Ea-q2p">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lenders_white_100x100" translatesAutoresizingMaskIntoConstraints="NO" id="CVl-oo-KYr">
                                         <rect key="frame" x="16" y="8" width="343" height="100"/>
@@ -359,14 +338,14 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iiQ-7J-LX5">
-                                        <rect key="frame" x="16" y="620" width="343" height="58"/>
+                                        <rect key="frame" x="16" y="620" width="343" height="68"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BZv-vP-DkP">
-                                        <rect key="frame" x="16" y="686" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="696" width="343" height="30"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-7J-PR2">
-                                                <rect key="frame" x="18.666666666666657" y="0.0" width="305.66666666666674" height="30"/>
+                                                <rect key="frame" x="10.666666666666657" y="0.0" width="321.66666666666674" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Já tenho uma conta." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79h-Uw-21H">
                                                         <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="30"/>
@@ -375,8 +354,8 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjd-P3-rJL">
-                                                        <rect key="frame" x="159.66666666666669" y="0.0" width="146" height="30"/>
-                                                        <state key="normal" title="Voltar ao menu inicial"/>
+                                                        <rect key="frame" x="159.66666666666669" y="0.0" width="162" height="30"/>
+                                                        <state key="normal" title="Voltar ao menu de login"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -395,6 +374,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZHq-0j-HVH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="G2H-zB-R05"/>
                     <connections>
                         <outlet property="repeatPasswordTextField" destination="hAT-fT-31S" id="VTi-J7-H8Y"/>
                         <outlet property="userCpfTextField" destination="Kep-5S-xtX" id="Ikr-VI-bVJ"/>

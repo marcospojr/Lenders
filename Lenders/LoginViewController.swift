@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Lenders
-//
-//  Created by Marcos Junior on 27/08/20.
-//  Copyright © 2020 Marcos Junior. All rights reserved.
-//
-
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -43,6 +35,13 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func crieButtonTapped(_ sender: Any) {
+        let registerViewController = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        
+        self.present(registerViewController, animated: true, completion: nil)
+    }
+    
     
 }
 
