@@ -1,0 +1,155 @@
+FORMAT: 1A
+HOST: https://lendersapi1.apiblueprint.org/
+
+# Lenders API
+
+Esta é uma API para cadastrar os usuários e seus empréstimos
+
+## Coleção de Usuários [/api/users]
+
+### Lista todos os usuários [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "userName": "Marcos",
+                "userLastName": "Pereira",
+                "userCpf": "111",
+                "userEmail": "marcos@email.com",
+                "userPassword": "123"
+            }
+        ]
+
+
+## Usuário [/api/users/{userId}]
+
++ Parameters
+    + userId (number) - ID do Usuário que será exibido
+
+### Visualizar os detalhes do usuário [GET]
+
++ Response 200 (application/json)
+
+        {
+            "userName": "Marcos",
+            "userLastName": "Pereira",
+            "userCpf": "111",
+            "userEmail": "marcos@email.com",
+            "userPassword": "123"
+        }
+
+### Cadastrar um novo usuário [POST]
+
++ Request (application/json)
+
+        {
+            "userName": "Marcos",
+            "userLastName": "Pereira",
+            "userCpf": "111",
+            "userEmail": "marcos@email.com",
+            "userPassword": "123"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/users/1
+
+    + Body
+
+            {
+                "userId": "1",
+                "userName": "Marcos",
+                "userLastName": "Pereira",
+                "userCpf": "111",
+                "userEmail": "marcos@email.com",
+                "userPassword": "123"
+            }
+            
+
+## Empréstimos [/api/lending/{lendId}]
+
++ Parameters
+    + lendId (number) - ID do empréstimo que está sendo feito
+
+### Cadastrar uma nova solicitação [POST]
+
++ Request (application/json)
+
+        {
+            "userCpf": "111",
+            "valorEmprestimo": "10000",
+            "qtdPrestacoes": "24",
+            "txJuros": "3,8",
+            "confirmarEmail": "marcos@email.com"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/lending/1
+
+    + Body
+
+            {
+                "lendId": "1",
+                "userCpf": "111",
+                "valorEmprestimo": "10000",
+                "qtdPrestacoes": "24",
+                "txJuros": "3,8",
+                "confirmarEmail": "marcos@email.com",
+                "situacao": "Em análise"
+            }
+            
+### Visualizar detalhes do empréstimo [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "userName": "Marcos",
+                "lendId": "1",
+                "userCpf": "111",
+                "valorEmprestimo": "10000",
+                "qtdPrestacoes": "24",
+                "txJuros": "3,8",
+                "confirmarEmail": "marcos@email.com",
+                "situacao": "Em análise"
+            }
+        ]
+            
+## Empréstimos por usuário [/api/lending/{userId}]
+
++ Parameters
+    + userId (number) - ID do empréstimo que está sendo feito
+
+
+### Visualizar os empréstimos por usuario [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "userName": "Marcos",
+                "lendId": "1",
+                "userCpf": "111",
+                "valorEmprestimo": "10000",
+                "qtdPrestacoes": "24",
+                "txJuros": "3,8",
+                "confirmarEmail": "marcos@email.com",
+                "situacao": "Em análise"
+            },
+            {
+                "userName": "Marcos",
+                "lendId": "2",
+                "userCpf": "111",
+                "valorEmprestimo": "20000",
+                "qtdPrestacoes": "24",
+                "txJuros": "3,8",
+                "confirmarEmail": "marcos@email.com",
+                "situacao": "Aprovada"
+            }
+        ]
