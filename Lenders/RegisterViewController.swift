@@ -64,7 +64,7 @@ class RegisterViewController: UIViewController {
         view.addSubview(myActivityIndicator)
         
         // Registrando o usuário
-        let myUrl = URL(string: "https://private-c7bb6-lendersapi1.apiary-mock.com/api/users")
+        let myUrl = URL(string: "https://private-c7bb6-lendersapi1.apiary-mock.com/api/users/1")
         var request = URLRequest(url: myUrl!)
         
         request.httpMethod = "POST"

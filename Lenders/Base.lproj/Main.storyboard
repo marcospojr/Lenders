@@ -276,9 +276,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u8y-M1-2jy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8y-M1-2jy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <items>
                                     <navigationItem title="Home" id="nXB-rv-Ibh">
                                         <barButtonItem key="leftBarButtonItem" title="Sair" id="fUT-jd-BZe">
@@ -289,32 +288,49 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoq-aE-g7H">
-                                <rect key="frame" x="16" y="274" width="343" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Acompanhar propostas">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="udC-gx-hAR" kind="show" id="wqx-Tc-N4y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb6-hA-9pC">
-                                <rect key="frame" x="16" y="131" width="343" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Solicitar empréstimo">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="VWM-SE-cBK" kind="show" identifier="solicitarSegue" id="2nh-Vm-kW9"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XvH-0Q-xsP">
+                                <rect key="frame" x="16" y="106" width="343" height="261"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb6-hA-9pC">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="118"/>
+                                        <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="118" id="Ik6-R1-9Yv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Solicitar empréstimo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="VWM-SE-cBK" kind="show" identifier="solicitarSegue" id="2nh-Vm-kW9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoq-aE-g7H">
+                                        <rect key="frame" x="0.0" y="143" width="343" height="118"/>
+                                        <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="118" id="4DY-3V-TMu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Acompanhar propostas">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="udC-gx-hAR" kind="show" id="wqx-Tc-N4y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="u8y-M1-2jy" firstAttribute="leading" secondItem="VFn-La-6pM" secondAttribute="leading" id="7zr-cy-7gv"/>
+                            <constraint firstItem="XvH-0Q-xsP" firstAttribute="leading" secondItem="VFn-La-6pM" secondAttribute="leading" constant="16" id="HeS-p8-eMt"/>
+                            <constraint firstItem="VFn-La-6pM" firstAttribute="trailing" secondItem="XvH-0Q-xsP" secondAttribute="trailing" constant="16" id="TlI-8o-QJH"/>
+                            <constraint firstItem="XvH-0Q-xsP" firstAttribute="top" secondItem="u8y-M1-2jy" secondAttribute="bottom" constant="50" id="hUe-j6-hwr"/>
+                            <constraint firstItem="u8y-M1-2jy" firstAttribute="top" secondItem="VFn-La-6pM" secondAttribute="top" id="xnM-VZ-oNS"/>
+                            <constraint firstItem="u8y-M1-2jy" firstAttribute="trailing" secondItem="VFn-La-6pM" secondAttribute="trailing" id="zwa-HL-3do"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VFn-La-6pM"/>
                     </view>
                     <navigationItem key="navigationItem" id="sBG-g6-Vt7"/>
@@ -484,9 +500,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ufn-Of-Z5W">
-                                <rect key="frame" x="0.0" y="10" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufn-Of-Z5W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                 <items>
                                     <navigationItem title="Acompanhar propostas" id="diB-Xw-64j">
                                         <barButtonItem key="leftBarButtonItem" title="Voltar" id="Emm-Zt-O60">
@@ -497,134 +512,169 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VN1-1F-lRL">
-                                <rect key="frame" x="8" y="296" width="359" height="165"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="26j-a4-4HN">
+                                <rect key="frame" x="16" y="124" width="343" height="510"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Porposta número: 2020080077" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSy-NL-8CM">
-                                        <rect key="frame" x="8" y="8" width="242" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valor solicitado: R$ 180.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDm-2n-RCW">
-                                        <rect key="frame" x="8" y="37" width="238" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade de parcelas: 48x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlN-qg-TwY">
-                                        <rect key="frame" x="8" y="66" width="221" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taxa de Juros: 3,8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wO-Nq-hse">
-                                        <rect key="frame" x="8" y="95" width="153" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Situação: Aprovada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipX-HK-kMU">
-                                        <rect key="frame" x="8" y="124" width="149" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kju-9t-4iR">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="165"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6jP-uQ-WPX">
+                                                <rect key="frame" x="16" y="16" width="311" height="133"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Porposta número: 2020080001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V7-IM-xED">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240.33333333333334" height="19.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Valor solicitado: R$ 260.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNB-Vb-m8k">
+                                                        <rect key="frame" x="0.0" y="27.666666666666657" width="240.33333333333334" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Quantidade de parcelas: 72x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-90-vqx">
+                                                        <rect key="frame" x="0.0" y="56.000000000000007" width="218.66666666666666" height="20.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Taxa de Juros: 3,8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44x-VE-g9X">
+                                                        <rect key="frame" x="0.0" y="84.333333333333343" width="153" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Situação: Em análise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzV-jy-jgy">
+                                                        <rect key="frame" x="0.0" y="112.66666666666666" width="157" height="20.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="6jP-uQ-WPX" firstAttribute="top" secondItem="kju-9t-4iR" secondAttribute="top" constant="16" id="CQg-wP-6S0"/>
+                                            <constraint firstAttribute="trailing" secondItem="6jP-uQ-WPX" secondAttribute="trailing" constant="16" id="CXL-Ac-hAA"/>
+                                            <constraint firstAttribute="bottom" secondItem="6jP-uQ-WPX" secondAttribute="bottom" constant="16" id="FuY-5U-SaW"/>
+                                            <constraint firstItem="6jP-uQ-WPX" firstAttribute="leading" secondItem="kju-9t-4iR" secondAttribute="leading" constant="16" id="dWi-rM-P7e"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VN1-1F-lRL">
+                                        <rect key="frame" x="0.0" y="173" width="343" height="164"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k5K-j7-ctt">
+                                                <rect key="frame" x="16" y="16" width="311" height="132"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Porposta número: 2020080077" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSy-NL-8CM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="241.33333333333334" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Valor solicitado: R$ 180.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDm-2n-RCW">
+                                                        <rect key="frame" x="0.0" y="28.333333333333314" width="238" height="18.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Quantidade de parcelas: 48x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlN-qg-TwY">
+                                                        <rect key="frame" x="0.0" y="55.000000000000007" width="220.33333333333334" height="20.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Taxa de Juros: 3,8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wO-Nq-hse">
+                                                        <rect key="frame" x="0.0" y="83.333333333333314" width="153" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Situação: Aprovada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipX-HK-kMU">
+                                                        <rect key="frame" x="0.0" y="111.66666666666669" width="148.33333333333334" height="20.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="k5K-j7-ctt" firstAttribute="leading" secondItem="VN1-1F-lRL" secondAttribute="leading" constant="16" id="7ek-Uo-wty"/>
+                                            <constraint firstAttribute="bottom" secondItem="k5K-j7-ctt" secondAttribute="bottom" constant="16" id="7xe-qa-bXj"/>
+                                            <constraint firstAttribute="trailing" secondItem="k5K-j7-ctt" secondAttribute="trailing" constant="16" id="K74-dk-uUL"/>
+                                            <constraint firstItem="k5K-j7-ctt" firstAttribute="top" secondItem="VN1-1F-lRL" secondAttribute="top" constant="16" id="ftb-Rv-3VV"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vX9-fF-7EX">
+                                        <rect key="frame" x="0.0" y="345" width="343" height="165"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ghz-Wu-weB">
+                                                <rect key="frame" x="16" y="16" width="311" height="133"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Porposta número: 2020080015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MB-uC-LSy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240.33333333333334" height="19.666666666666668"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Valor solicitado: R$ 100.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqU-7F-bvP">
+                                                        <rect key="frame" x="0.0" y="27.666666666666629" width="238" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Quantidade de parcelas: 96x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B2-xO-zks">
+                                                        <rect key="frame" x="0.0" y="56.000000000000007" width="220.33333333333334" height="20.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Taxa de Juros: 3,8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwx-QE-0OC">
+                                                        <rect key="frame" x="0.0" y="84.333333333333371" width="153" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Situação: Recusada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lF8-oh-9QJ">
+                                                        <rect key="frame" x="0.0" y="112.66666666666663" width="150.66666666666666" height="20.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="ghz-Wu-weB" firstAttribute="top" secondItem="vX9-fF-7EX" secondAttribute="top" constant="16" id="4kt-X6-3Zm"/>
+                                            <constraint firstItem="ghz-Wu-weB" firstAttribute="leading" secondItem="vX9-fF-7EX" secondAttribute="leading" constant="16" id="Skl-jc-Vyw"/>
+                                            <constraint firstAttribute="bottom" secondItem="ghz-Wu-weB" secondAttribute="bottom" constant="16" id="wS3-yr-Phc"/>
+                                            <constraint firstAttribute="trailing" secondItem="ghz-Wu-weB" secondAttribute="trailing" constant="16" id="xtG-RY-PTL"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kju-9t-4iR">
-                                <rect key="frame" x="8" y="123" width="359" height="165"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Porposta número: 2020080001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V7-IM-xED">
-                                        <rect key="frame" x="8" y="8" width="241" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valor solicitado: R$ 260.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNB-Vb-m8k">
-                                        <rect key="frame" x="8" y="37" width="241" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade de parcelas: 72x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-90-vqx">
-                                        <rect key="frame" x="8" y="66" width="219" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taxa de Juros: 3,8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44x-VE-g9X">
-                                        <rect key="frame" x="8" y="95" width="153" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Situação: Em análise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzV-jy-jgy">
-                                        <rect key="frame" x="8" y="124" width="157" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vX9-fF-7EX">
-                                <rect key="frame" x="8" y="469" width="359" height="165"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Porposta número: 2020080015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MB-uC-LSy">
-                                        <rect key="frame" x="8" y="8" width="241" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valor solicitado: R$ 100.000,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqU-7F-bvP">
-                                        <rect key="frame" x="8" y="37" width="238" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade de parcelas: 96x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B2-xO-zks">
-                                        <rect key="frame" x="8" y="66" width="221" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Taxa de Juros: 3,8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwx-QE-0OC">
-                                        <rect key="frame" x="8" y="95" width="153" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Situação: Recusada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lF8-oh-9QJ">
-                                        <rect key="frame" x="8" y="124" width="151" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.13902100919999999" green="0.67911809680000002" blue="0.80394035580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
+                                <constraints>
+                                    <constraint firstItem="vX9-fF-7EX" firstAttribute="width" secondItem="VN1-1F-lRL" secondAttribute="width" id="gKf-pd-5IO"/>
+                                    <constraint firstItem="VN1-1F-lRL" firstAttribute="height" secondItem="kju-9t-4iR" secondAttribute="height" multiplier="0.993939" id="jKF-Wq-uBY"/>
+                                    <constraint firstItem="VN1-1F-lRL" firstAttribute="centerY" secondItem="26j-a4-4HN" secondAttribute="centerY" id="szZ-Rz-9f5"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uSa-cm-wsh" firstAttribute="bottom" secondItem="26j-a4-4HN" secondAttribute="bottom" constant="90" id="21s-4n-83Z"/>
+                            <constraint firstItem="Ufn-Of-Z5W" firstAttribute="centerX" secondItem="26j-a4-4HN" secondAttribute="centerX" id="IZ5-E9-5Ar"/>
+                            <constraint firstItem="Ufn-Of-Z5W" firstAttribute="leading" secondItem="uSa-cm-wsh" secondAttribute="leading" id="KGh-7c-PQX"/>
+                            <constraint firstItem="26j-a4-4HN" firstAttribute="top" secondItem="Ufn-Of-Z5W" secondAttribute="bottom" constant="50" id="LaC-xj-LAw"/>
+                            <constraint firstItem="26j-a4-4HN" firstAttribute="leading" secondItem="fSL-67-fzX" secondAttribute="leadingMargin" id="Nao-Gt-cU5"/>
+                            <constraint firstItem="Ufn-Of-Z5W" firstAttribute="top" secondItem="uSa-cm-wsh" secondAttribute="top" id="QZ4-pb-WFb"/>
+                            <constraint firstItem="26j-a4-4HN" firstAttribute="centerY" secondItem="fSL-67-fzX" secondAttribute="centerY" id="W33-v3-wRD"/>
+                            <constraint firstItem="26j-a4-4HN" firstAttribute="trailing" secondItem="fSL-67-fzX" secondAttribute="trailingMargin" id="xna-pD-PFA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uSa-cm-wsh"/>
                     </view>
                     <navigationItem key="navigationItem" id="2bd-aA-5rH"/>
